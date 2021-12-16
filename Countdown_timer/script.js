@@ -17,13 +17,16 @@ function countdown() {
     const minutes = Math.floor(totalSeconds / 60) % 60;
     const seconds = Math.floor(totalSeconds%60)
 
-    daysEl.innerText = days
-    hoursEl.innerText = hours
-    minutesEl.innerText = minutes
-    secondsEl.innerText = seconds
+    daysEl.innerText = timeFormat(days)
+    hoursEl.innerText = timeFormat(hours)
+    minutesEl.innerText = timeFormat(minutes)
+    secondsEl.innerText = timeFormat(seconds)
 
 }
 
+function timeFormat (time) {
+    return time < 10  ? `0${time}` : time;
+}
 setInterval(countdown, 1000)
 
 document.getElementById("days").innerText = countdown()
